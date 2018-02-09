@@ -1,18 +1,8 @@
-/***************************************************************************
- * 
- * Copyright (c) 2012 Sina.com, Inc. All Rights Reserved
- * 1.0
- * 
- **************************************************************************/
-
 /**
  * @file ac_sort.c
- * @author xueyun(xueyun@staff.sina.com.cn)
- * @date 2012/02/20 14:43:17
+ * @author 
  * @version 1.0
  * @brief 
- *
- *  
  **/
 #include <vector.h>
 #include <stdio.h>
@@ -189,7 +179,7 @@ typedef struct {
 } ClusterDocid;
 
 typedef struct {
-	int degree_0;//À¬»ø
+	int degree_0;//åƒåœ¾
 	int degree_11;
 	int degree_12;
 	int degree_13;
@@ -280,7 +270,7 @@ typedef struct {
 	int good_grade;
 	int del_grade;
 	int low_grade;
-	int recall_good_grade;//ÓÅÖÊÕÙ»Øµµ´Î
+	int recall_good_grade;//ä¼˜è´¨å¬å›æ¡£æ¬¡
 	int qualified_num;
 	int original_pic_num;
 	int orig_video_num;
@@ -740,24 +730,24 @@ int ac_sort_social(QsInfo *info) {
 					doc->value = tmp + INTV_FOL;
 				}
 				if ((info->intention & INTENTION_COMMENT) != 0
-						&& friend_count++ < social_up_follower) {//¿Ú±®Àà£¬Ö´ĞĞÇ¿¼ÓÈ¨
+						&& friend_count++ < social_up_follower) {//å£ç¢‘ç±»ï¼Œæ‰§è¡Œå¼ºåŠ æƒ
 					doc->value = tmp + intv_max_follow;
 				}
 			}
 
 			if (social_count < SOCIAL_RESERVE_NUM) {
-				if (node->relation & SOCIAL_WORKMATE) {//ÏàÍ¬¹«Ë¾
+				if (node->relation & SOCIAL_WORKMATE) {//ç›¸åŒå…¬å¸
 					doc->value = tmp + INTV_COMP;
 				}
-				if (node->relation & SOCIAL_SCHOOLMATE) {//ÏàÍ¬Ñ§Ğ£
+				if (node->relation & SOCIAL_SCHOOLMATE) {//ç›¸åŒå­¦æ ¡
 					doc->value = tmp + INTV_SCHO;
 				}
-				if (node->relation & SOCIAL_FRIEND) {//¼ä½ÓºÃÓÑ
+				if (node->relation & SOCIAL_FRIEND) {//é—´æ¥å¥½å‹
 					doc->value = tmp + INTV_FRIEND;
 				}
 			}
 			if (doc->value > tmp && doc->getCategory() != DOC_HOT) {
-				doc->setCategory(DOC_SOCIAL);//´òËãÉç»á»¯±êÖ¾
+				doc->setCategory(DOC_SOCIAL);//æ‰“ç®—ç¤¾ä¼šåŒ–æ ‡å¿—
                 doc->value = doc->rank;
 			}
 			social_count++;
@@ -807,7 +797,7 @@ static void ac_get_extinfo(QsInfo *info, uint64_t debugid) {
 					attr.get_validfwnm());
 		}
         
-		//¾ÉµÄÀ©Õ¹Êı¾İ½âÎö·½Ê½
+		//æ—§çš„æ‰©å±•æ•°æ®è§£ææ–¹å¼
         if (doc->reserved1 == 0)
         {
             int flag = bcinfo->bc[doc->bcidx]->flag;
@@ -1102,7 +1092,7 @@ int update_validfans(QsInfo *info)
 		SLOG_FATAL("both week and hour validfans dicts are unavaliable");
 		return -1;
 	}
-	/* ¸üĞÂÓĞĞ§·ÛË¿Êı */
+	/* æ›´æ–°æœ‰æ•ˆç²‰ä¸æ•° */
 	for (int i = 0; i < info->bcinfo.get_doc_num(); i++) 
 	{
 		SrmDocInfo *doc = info->bcinfo.get_doc_at(i);
@@ -1539,7 +1529,7 @@ static bool is_bad_source_doc(QsInfo *info, SrmDocInfo *doc,SourceIDDict* source
 	qi = attr.get_qi();
 	source = attr.get_digit_source();
 	mask_sid = source_dict->find(source);
-   //Èç¹ûÔÚ´ÊµäÖĞ£¬ÇÒ×ª·¢ÊıĞ¡ÓÚ4£¬ÇÒ£¨ÊÇ¸öÍÚ·Ø½á¹û£¬»ò²»ÔÚ°×Ãûµ¥£©
+   //å¦‚æœåœ¨è¯å…¸ä¸­ï¼Œä¸”è½¬å‘æ•°å°äº4ï¼Œä¸”ï¼ˆæ˜¯ä¸ªæŒ–åŸç»“æœï¼Œæˆ–ä¸åœ¨ç™½åå•ï¼‰
     if (mask_sid && fwnum < 2
             && (GET_DUP_FLAG_OF_INDEX(qi) || GET_NOT_WHITE_FLAG(qi)))
     {
@@ -1584,7 +1574,7 @@ static bool is_bad_blue_vip_doc(QsInfo *info, SrmDocInfo *doc)
     AcExtDataParser attr(doc);
     vtype = attr.get_verified_type();
     fwnum = attr.get_fwnum();     
-	/* ÍÅÌåÀ¶v ÓĞĞ§·ÛË¿ < 1500 */
+	/* å›¢ä½“è“v æœ‰æ•ˆç²‰ä¸ < 1500 */
 	if (attr.get_verified() && vtype == 7 && doc->validfans < 1500)
 	{
         AC_WRITE_DOC_DEBUG_LOG(info, doc, PRINT_RERANK_LOG_LELVE, SHOW_DEBUG_NEWLINE,
@@ -1610,7 +1600,7 @@ static bool is_bad_blue_vip_doc(QsInfo *info, SrmDocInfo *doc,
 		return false;
     vtype = attr.get_verified_type();
     fwnum = attr.get_fwnum();     
-	/* ÍÅÌåÀ¶v ÓĞĞ§·ÛË¿ < 1500 */
+	/* å›¢ä½“è“v æœ‰æ•ˆç²‰ä¸ < 1500 */
 	if (attr.get_verified() && vtype == 7 && doc->validfans < 1500)
 	{
         AC_WRITE_DOC_DEBUG_LOG(info, doc, PRINT_RERANK_LOG_LELVE, SHOW_DEBUG_NEWLINE,
@@ -2363,10 +2353,10 @@ static bool is_dup_update_doc(QsInfo *info, SrmDocInfo *doc,
 static int get_granularity_qi(uint64_t qi) {
 	int quality = 0;
     // hit return 0:1 9 15 18
-	if (qi & 0x48202ll) //qiµÄ1¡¢8¡¢9¡¢10¡¢15¡¢18Î»ÓĞÖµÊ±£¬¹ıÂËÁ£¶ÈÎª0   12Î»´ı¶¨
+	if (qi & 0x48202ll) //qiçš„1ã€8ã€9ã€10ã€15ã€18ä½æœ‰å€¼æ—¶ï¼Œè¿‡æ»¤ç²’åº¦ä¸º0   12ä½å¾…å®š
 		quality =0;
     // hit return 1:0
-	else if (qi & 0x10000001ll) //qiµÄ0¡¢13¡¢16Î»ÓĞÖµÊ±£¬¹ıÂËÁ£¶ÈÎª1   +7 28Î»
+	else if (qi & 0x10000001ll) //qiçš„0ã€13ã€16ä½æœ‰å€¼æ—¶ï¼Œè¿‡æ»¤ç²’åº¦ä¸º1   +7 28ä½
 		quality = 1;
 	else {
         // check qi 4 5 bit,
@@ -4592,7 +4582,7 @@ static bool create_calc_exprs(QsInfo* info,Ac_statistic& ac_sta)
     AC_WRITE_LOG(info, " [auto grade generating...]");
 	int is_da_control = int_from_conf(IS_DA_CONTROL,0);
 
-	//Èç¹ûDAÃ»ÓĞ·¢ËÍ²ÎÊı»ò²ÎÊı½âÎöÊ§°Ü£¬Ôò×ßÄ¬ÈÏ²ÎÊı
+	//å¦‚æœDAæ²¡æœ‰å‘é€å‚æ•°æˆ–å‚æ•°è§£æå¤±è´¥ï¼Œåˆ™èµ°é»˜è®¤å‚æ•°
 	if(!is_da_control || !get_da_grades(info, ac_sta))
 	{
 		Json::Value head_body; 
@@ -4618,7 +4608,7 @@ static bool create_calc_exprs(QsInfo* info,Ac_statistic& ac_sta)
     {
         char* condition = (char*) ac_sta.conditions[i].second.c_str();
 		int degree = atoi(ac_sta.conditions[i].first.c_str());
-        int ok = expr_create(info, condition, strlen(condition), ac_sta.exprs[degree]); // ac_sta.exprsÒª¸Ä³Émap£º unordered_map<int, expr>;
+        int ok = expr_create(info, condition, strlen(condition), ac_sta.exprs[degree]); // ac_sta.exprsè¦æ”¹æˆmapï¼š unordered_map<int, expr>;
         if( !ok ) 
 		{
 			ac_sta.expr_init_ok = false;
@@ -4633,8 +4623,8 @@ static bool create_calc_exprs(QsInfo* info,Ac_statistic& ac_sta)
 
 static bool get_auto_grades(QsInfo* info,Ac_statistic& ac_sta)
 {
-	//Èç¹û±í´ïÊ½¼ÆËãÊ§°ÜÔò×ßÀÏÂß¼­
-	//Ä¬ÈÏ²ÎÊıµÄ´æÔÚÊ¹µÃÕâÖÖÇé¿ö»ù±¾²»»á³öÏÖ
+	//å¦‚æœè¡¨è¾¾å¼è®¡ç®—å¤±è´¥åˆ™èµ°è€é€»è¾‘
+	//é»˜è®¤å‚æ•°çš„å­˜åœ¨ä½¿å¾—è¿™ç§æƒ…å†µåŸºæœ¬ä¸ä¼šå‡ºç°
 	bool ok = create_calc_exprs(info, ac_sta);
 	//if configure said that we should follow the old version then return false or return true
 	return ok;
@@ -4682,10 +4672,10 @@ static int get_degree_by_exprs(QsInfo *info, Ac_statistic& ac_sta, SrmDocInfo * 
 
     for ( expr_it it = ac_sta.exprs.begin(); it != ac_sta.exprs.end() && check_num--; ++it )
     {
-		//¼ì²éÄ³¸ödocµÄµµ´Î
+		//æ£€æŸ¥æŸä¸ªdocçš„æ¡£æ¬¡
 		degree = it->first;
 		//no_filter = ac_sta.grade_threshold_filter[degree]; 
-		// 0/1±íÊ¾²»ĞèÒª¹ıÂË»òÂú×ãÌõ¼ş²»ÓÃ¹ıÂË£¬-1±íÊ¾²»Âú×ããĞÖµÒª¹ıÂËµô
+		// 0/1è¡¨ç¤ºä¸éœ€è¦è¿‡æ»¤æˆ–æ»¡è¶³æ¡ä»¶ä¸ç”¨è¿‡æ»¤ï¼Œ-1è¡¨ç¤ºä¸æ»¡è¶³é˜ˆå€¼è¦è¿‡æ»¤æ‰
 		//no_filter = true;
 		/*
 		if(ac_sta.grade_threshold_filter.find(degree) != ac_sta.grade_threshold_filter.end())
@@ -6485,7 +6475,7 @@ bool ac_reranking_degrade_update(QsInfo *info) {
 
 static void init_stat_nod(QsInfo *info, Ac_statistic &node)
 {
-	node.degree_0  = 0;//À¬»ø
+	node.degree_0  = 0;//åƒåœ¾
 	node.degree_11 = 0;//
 	node.degree_14 = 0;
 	node.degree_16 = 0;
@@ -6862,8 +6852,8 @@ static int adjust_movie_result(QsInfo *info)
         //too lirrle result,skip;
 	return 0;         
     }
-    const uint64_t MovieMatchFlag = (0x1ll << 46);//¿¿¿¿query
-    const uint64_t MoviePartMatchFlag = (0x1ll << 47);//¿¿¿¿query
+    const uint64_t MovieMatchFlag = (0x1ll << 46);//é é query
+    const uint64_t MoviePartMatchFlag = (0x1ll << 47);//é é query
     SrmDocInfo *doc = NULL;
     int movieResultNum = 0;
     for(int i = 0; i < num; i++)
