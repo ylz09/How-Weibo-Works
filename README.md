@@ -1,2 +1,2 @@
 # weibo
-Analyze the search logic of weibo search
+Analyze the search logic of twitter search
