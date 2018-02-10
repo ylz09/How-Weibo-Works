@@ -1,3 +1,8 @@
+/**
+* Get the intension of the strategy
+* Intention_movie: the user want to get movie results
+* 
+**/
 static bool get_strategy_inten(QsInfo *info, Ac_statistic &ac_data) {
     AC_WRITE_LOG(info, " [get_strategy_inten]");
     int doc_num = info->bcinfo.get_doc_num();
@@ -26,7 +31,7 @@ static bool get_strategy_inten(QsInfo *info, Ac_statistic &ac_data) {
 				movie_num++;
 			}
 		}
-		if( movie_num >= social_threshold )
+		if( movie_num >= social_threshold ) // means the mannually inserted results other than realtime
 		{
 			ac_data.need_category_filter = 1;
 		}
