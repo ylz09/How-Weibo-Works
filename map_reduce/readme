@@ -39,8 +39,15 @@ A word count example:
   cat input | ./mapper | sort | ./reducer 
 
 Result:
+$ cat input 
+how are you
+fine thank you
+are you ok
+I am fine
+are you happy
+I am happy
 
-cat input | ./mapper | sort | ./reducer 
+$ cat input | ./mapper | sort | ./reducer 
 I	2
 am	2
 are	3
