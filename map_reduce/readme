@@ -58,3 +58,22 @@ ok	1
 thank	1
 you	4
 
+Above is just example to run on local machine, it's easy to submit to hadoop cluster by the following script:
+
+#!/bin/bash
+HADOOP_HOME=/opt/yarn-client
+INPUT_PATH=/test/input
+OUTPUT_PATH=/test/output
+$HADOOP_HOME/bin/hadoop fs -rmr $OUTPUT_PATH # make sure the output path not exist!
+ 
+${HADOOP_HOME}/bin/hadoop jar\ ${HADOOP_HOME}/share/hadoop/tools/lib/hadoop-streaming-2.2.0.jar\
+  -files mapper,reducer\
+  -input $INPUT_PATH\
+  -output $OUTPUT_PATH\
+  -mapper mapper\
+  -reducer reducer
+
+Ofcourse you need upload your input text to the cluster first! Now everything is done!
+
+
+
