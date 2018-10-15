@@ -17,6 +17,8 @@ Let's briefly check how hadoop streaming workd.
 3rd, reducer has the same format
 
 Options of hadoop streaming:
+----------------------------------------
+
 $HADOOP_HOME/bin/hadoop  jar $HADOOP_HOME/contrib/streaming/hadoop-*-streaming.jar \
 -input:		path of input 
 -output:	path of output
@@ -33,6 +35,7 @@ $HADOOP_HOME/bin/hadoop  jar $HADOOP_HOME/contrib/streaming/hadoop-*-streaming.j
 				stream.reduce.output.field.separator
 
 A word count example:
+----------------------------------------
 
   g++ -std=c++14 mapper.cpp -o mapper
   g++ -std=c++14 reducer.cpp -o reducer
@@ -59,7 +62,7 @@ thank	1
 you	4
 
 Above is just example to run on local machine, it's easy to submit to hadoop cluster by the following script:
-
+----------------------------------------
 #!/bin/bash
 HADOOP_HOME=/opt/yarn-client
 INPUT_PATH=/test/input
