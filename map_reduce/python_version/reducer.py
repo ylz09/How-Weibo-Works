@@ -21,5 +21,5 @@ for line in sys.stdin:
         pass
  
 # write the results to STDOUT (standard output)
-for word, count in sorted_word2count:
-    print '%s\t%s'% (word, count)
+for word in word2count:
+    print '%s\t%s'% (word, word2count[word])
