@@ -1,0 +1,53 @@
+Hadoop streaming
+----------------------------------------
+Hadoop streaming is an programming tool, which allow us to use any programming language you want.
+For exmaple, you can use "cat" as mapper and "wc" as reduceer:
+
+	$HADOOP_HOME/bin/hadoop  jar $HADOOP_HOME/contrib/streaming/hadoop-*-streaming.jar \
+	-input myInputDirs \
+	-output myOutputDir \
+	-mapper cat \
+	-reducer wc
+
+Let's briefly check how hadoop streaming workd.
+1st, both mapper and reducer use STDIN as input and output.
+2nd, mapper splits inputs into single line, and tranform it to key/value pairs
+		if there's TAB, then KEY \t VALUE
+		else KEY \t NULL //the whole line is key, NULL is value
+3rd, reducer has the same format
+
+Options of hadoop streaming:
+$HADOOP_HOME/bin/hadoop  jar $HADOOP_HOME/contrib/streaming/hadoop-*-streaming.jar \
+-input:		path of input 
+-output:	path of output
+-mapper:	user mapping code
+-reducer:	user reducing code
+-file:		input files for mapper or reducer
+-partitioner:	user defined partition code			
+-D:			property assigned by user, e.g.:
+				mapred.map.tasks
+				mapred.reduce.tasks
+				stream.map.input.field.separator
+				stream.map.output.field.separator
+				stream.reduce.input.field.separator
+				stream.reduce.output.field.separator
+
+A word count example:
+
+  g++ -std=c++14 mapper.cpp -o mapper
+  g++ -std=c++14 reducer.cpp -o reducer
+  cat input | ./mapper | sort | ./reducer 
+
+Result:
+
+cat input | ./mapper | sort | ./reducer 
+I	2
+am	2
+are	3
+fine	2
+happy	2
+how	1
+ok	1
+thank	1
+you	4
+
