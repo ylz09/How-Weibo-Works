@@ -1,2 +1,5 @@
 # How the Weibo works! (Chinese twitter)
-Analyze the search logic of twitter search
+1 Analyze the search logic of weibo search
+2 Graph search
+3 Singleton of configuration parameters
+4 rnaking strategy
