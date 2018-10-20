@@ -1,15 +1,9 @@
 /***************************************************************************
  * 
- * Copyright (c) 2014 Sina.com, Inc. All Rights Reserved
- * $Id$ 
- * 
  **************************************************************************/
  
 /**
  * @file ac_intervene_dict.h
- * @author wuhua1(minisearch@staff.sina.com.cn)
- * @date 2014/10/28 01:50:15
- * @version $Revision$ 
  * @brief 
  *  
  **/

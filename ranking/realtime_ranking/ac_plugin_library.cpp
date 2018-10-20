@@ -1,14 +1,6 @@
-/***************************************************************************
- * 
- * Copyright (c) 2011 Sina.com, Inc. All Rights Reserved
- * 1.0
- * 
- **************************************************************************/
  
 /**
  * @file ac_da_caller.h
- * @author hongbin2(hongbin2@staff.sina.com.cn)
- * @date 2013/01/04
  * @version 1.0
  * @brief 
  *  

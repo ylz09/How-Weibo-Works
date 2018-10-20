@@ -1,13 +1,10 @@
 /***************************************************************************
  *
- * Copyright (c) 2013 Sina.com, Inc. All Rights Reserved
  * 1.0
  *
  **************************************************************************/
 
 /**
- * @file ac_filter.h
- * @author hongbin2(hongbin2@staff.sina.com.cn)
  * @date 2013/02/03
  * @version 1.0
  * @brief
