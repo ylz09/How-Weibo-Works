@@ -1,0 +1,33 @@
+1. Now for a returned search result, it belongs to the following degree:
+
+ enum {
+     // del
+     DEGREE_0 = 0,
+     DEGREE_1_FORWARD_TIME = 1,
+     DEGREE_2_RANK_ERROR = 2,
+     // recall
+     DEGREE_3_DUP_DUP = 3,
+     DEGREE_4_DUP = 4,
+     DEGREE_5_LOW = 5,
+     DEGREE_6_RECALL_LOW_DUP = 6,
+     DEGREE_7_NOACT_DUP = 7,
+     DEGREE_8_RECALL = 8,
+     // good
+     DEGREE_9_GOOD = 9,
+     DEGREE_10_RECALL_GOOD_DUP = 10,
+     DEGREE_11_VALIDFWNUM = 11,
+     DEGREE_12_SOCIAL_AT = 12, //tweet author and the people the author @ in this tweet are friends (followship)
+     DEGREE_13_GOOD_PASS_FILTER = 13,
+     DEGREE_14_VIP = 14,
+     DEGREE_15_SOCIAL = 15, //the searcher and author are friends 
+ };
+
+2. And we return the top 1000 best degreee docs to the searcher.
+
+3. Now the ranking degrees are defined at AC module, then if we want update the rank degree we have to modify the code, test, ship, it cost a lot time and not neccessary!
+
+4. We plan to move the ranking to upper level, where the query is parsed! The degree info is passed with the queries.
+	1. DA will decide how many degrees to use
+	2. DA will decide how to divide these degrees, which are good, which are needed when recall, which are bad
+
+
