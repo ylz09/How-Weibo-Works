@@ -1,18 +1,3 @@
-/***************************************************************************
- *
- * Copyright (c) 2013 Sina.com, Inc. All Rights Reserved
- * 1.0
- *
- **************************************************************************/
-
-/**
- * @file ac_sort.h
- * @author hongbin2(hongbin2@staff.sina.com.cn)
- * @date 2013/02/03
- * @version 1.0
- * @brief
- *
- **/
 #ifndef __AC_SORT_H__
 #define __AC_SORT_H__
 

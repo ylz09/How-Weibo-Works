@@ -1,21 +1,3 @@
-/***************************************************************************
- * 
- * Copyright (c) 2012 Sina.com, Inc. All Rights Reserved
- * $Id$ 
- * 
- **************************************************************************/
- 
-/**
- * @file search_dict.h
- * @author wuhua1(minisearch@staff.sina.com.cn)
- * @date 2012/07/16 14:14:41
- * @version $Revision$ 
- * @brief 
- *  
- **/
-
-
-
 
 #ifndef  __SEARCH_DICT_H_
 #define  __SEARCH_DICT_H_

@@ -1,18 +1,3 @@
-/***************************************************************************
- * 
- * Copyright (c) 2012 Sina.com, Inc. All Rights Reserved
- * $Id$ 
- * 
- **************************************************************************/
- 
-/**
- * @file search_dict.cpp
- * @author wuhua1(minisearch@staff.sina.com.cn)
- * @date 2012/07/16 14:15:34
- * @version $Revision$ 
- * @brief 
- *  
- **/
 
 #include <string.h>
 #include <CRC.h>

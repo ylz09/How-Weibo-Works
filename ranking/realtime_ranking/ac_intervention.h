@@ -1,18 +1,3 @@
-/***************************************************************************
- * 
- * Copyright (c) 2014 Sina.com, Inc. All Rights Reserved
- * 1.0
- * 
- **************************************************************************/
-
-/**
- * @file ac_intervention.h
- * @author guanli(guanli@staff.sina.com.cn)
- * @date 2014/04/03
- * @version 1.0
- * @brief 
- *  
- **/
 #ifndef  __AC_SRC_PLUGINS_WEIBO_AC_INTERVENTION_H_
 #define  __AC_SRC_PLUGINS_WEIBO_AC_INTERVENTION_H_
 

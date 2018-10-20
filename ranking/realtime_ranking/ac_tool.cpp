@@ -1,18 +1,3 @@
-/***************************************************************************
- * 
- * Copyright (c) 2011 Sina.com, Inc. All Rights Reserved
- * 1.0
- * 
- **************************************************************************/
- 
-/**
- * @file ac_tool.c
- * @author wangjian6(wangjian6@staff.sina.com.cn)
- * @date 2011/09/28 10:08:17
- * @version 1.0
- * @brief 
- *  
- **/
 #include "ac_tool.h"
 #include "ac_caller_man.h"
 #include "jsoncpp/jsoncpp.h"

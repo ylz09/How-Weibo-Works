@@ -1,19 +1,3 @@
-/***************************************************************************
- * 
- * Copyright (c) 2012 Sina.com, Inc. All Rights Reserved
- * 1.0
- * 
- **************************************************************************/
-
-/**
- * @file ac_sort.c
- * @author xueyun(xueyun@staff.sina.com.cn)
- * @date 2012/02/20 14:43:17
- * @version 1.0
- * @brief 
- *
- *  
- **/
 #include <vector.h>
 #include <stdio.h>
 #include <stdlib.h>

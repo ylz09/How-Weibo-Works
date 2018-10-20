@@ -1,9 +1,7 @@
 /**
  * @file ac_source_id_dict.cpp
  * @brief source id 打压词典，词典中的id满足某些条件会被打压
- * @author qiupengfei
  * @version 1.0
- * @date 2014-04-15
  */
 
 
