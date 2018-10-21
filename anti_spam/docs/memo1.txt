@@ -1,0 +1,9 @@
+实时序热搜榜图片作弊过滤
+上线目标：
+
+对实时序热搜榜的作弊图片进行打压。
+
+上线前要先加载下面两个词典：
+10.73.12.142::MINI_SEARCH/lizhou1/uid_source_dict (周更新)
+10.73.12.142::MINI_SEARCH/lizhou1/realtime_hot_query_dict; （每5分钟更新）
+

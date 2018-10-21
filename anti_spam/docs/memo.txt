@@ -1,0 +1,21 @@
+目的
+对于搜索结果中新来源重复的微博进行打散。
+分为对热搜和一般搜索两种打散策略。
+本次上线只对热搜新来源进行打散。
+
+需要更新数据文件到data目录下：
+rsync 10.73.12.142::MINI_SEARCH/lizhou1/topn_source_dict.txt 
+rsync 10.73.12.142::MINI_SEARCH/lizhou1/topn_source_dict.txt.stamp
+
+定时任务：
+机器IP：10.21.114.2
+search权限下
+1 2 * * * cd /home/search/lizhou1/hadoop/ ; sh cmd.sh >log1 2>&1
+0 */3 * * * cd /home/search/lizhou1/hadoop/ ; sh cmd_2.sh >log2 2>&1
+用到的map-red程序和启动脚本都在/home/search/lizhou1/hadoop/路径下：
+cmd.sh ： 构造大辞典，覆盖40天数据，每天更新一次；
+cmd_2.sh：构造小词典，覆盖2天数据，每3小时更新一次，和大辞典合并后推到线上。
+词典：
+topn_source_dict.txt ：用于热词的新来源打散，1000+常用来源；
+max_src.txt ： 最大来源词典，用于普通搜索的来源打散，这个暂时未启用；
+
