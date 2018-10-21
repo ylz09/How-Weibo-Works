@@ -1,0 +1,19 @@
+Problem
+----------------------------------------------
+In Weibo, there are a lot of daily upgrade.
+Some need we modify the logic, which we need finish them following the normal process, 
+such as confirm the requirement with the PM, write the code, unit-test, QA-test, back and forth.
+When everything is expected, then OP ship the new changes online. Done!
+
+However, there are many cases, we don't need to do all these steps.
+For example, you just need change a value of the configuration, like A/B test, the aim id.
+Sure, you also affect the online production, but we know it's no problem since we don't change the logic.
+
+Currently, there are so many such configuration values are still hard coded in the code.
+To solve this problem, we use singleton to solve it perfectly.
+By using singleton, we only need change the configuration files, and all the function use it will be updated.
+
+
+path:
+The path of the implementation:
+/d/WorkExperience/weibo/search_65/ac/src/utils/ac_global_conf.*

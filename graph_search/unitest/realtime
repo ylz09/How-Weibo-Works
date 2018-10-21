@@ -1,0 +1,9 @@
+[index]
+hashsize = 101
+capacity = 2000
+unitsize = 120
+social_realtime = 1
+shm = 1
+skey = 3
+[queue]
+host = social_realtime_action+recomm@queue.match.sina.com.cn:11233
